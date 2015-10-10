@@ -1,0 +1,141 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    padding:1em 5em;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+input, textarea
+{
+    border:1px solid #aaa;
+}
+
+p
+{
+    margin:10px 0px;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+    .editor-field textarea
+    {
+        width:40%;
+    }
+
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Custom css */
+footer
+{
+    margin-top:2em;
+    padding-top:1em;
+    border-top:solid 1px #808080;
+
+}
+
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:0.9em;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+ul.attachment
+{
+    width:40%;
+    padding:0px;
+
+}
+
+ul.attachment li
+{
+    margin:1em;
+    padding:1em;
+    border:solid 1px #808080;
+    background-color:#dddddd;
+    font-size:0.9em;
+    list-style-type:none;
+}
+
+    ul.attachment li a
+    {
+        font-weight:bold;
+    }
+        ul.attachment li a.title
+        {
+           
+        }
+        ul.attachment li a.deleteItem
+        {
+            text-align:right;           
+            float:right;
+            color:#808080;
+        }

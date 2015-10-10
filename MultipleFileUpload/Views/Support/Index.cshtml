@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MultipleFileUpload.Models.Support>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="gridtable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Summary)
+        </th>
+         <th>Total Files</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Summary)
+        </td>
+        <td>@if (item.FileDetails.Count() == 0) { 
+            <span>No File</span>
+            }
+            else{
+            <span>@item.FileDetails.Count() File(s)</span>   
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SupportId }) |         
+            <a href="javascript:void(0);" data-id="@item.SupportId" class="deleteItem">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+@section Scripts {
+  
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Do you really want to delete this item?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {                    
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();                        
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("There is something wrong. Please try again.");
+                })
+
+            }
+        });
+    </script>
+
+}
